@@ -1,0 +1,4 @@
+{"device": "west-2", "lane": "W", "port": "P7", "kind": "camera"}
+{"device": "east-1", "lane": "E", "port": "P7", "kind": "camera"}
+{"device": "west-gate", "lane": "W", "port": "P7", "kind": "controller"}
+{"device": "east-gate", "lane": "E", "port": "P7", "kind": "controller"}

@@ -1,0 +1,105 @@
+{
+  "feeds": {
+    "manifests": {
+      "key": [
+        "manifest",
+        "revision",
+        "vin"
+      ],
+      "fields": {
+        "manifest": "string",
+        "revision": "int",
+        "vin": "string",
+        "port": "string",
+        "from": "time",
+        "until": "time",
+        "action": "string",
+        "published_at": "time"
+      },
+      "note": "同一清单按修订识别，行动为 admit 或 hold，时间区间左闭右开。VIN 为 17 位大写合成识别码。 published_at 是发送修订的时间，from 和 until 是车辆准入时段。"
+    },
+    "observations": {
+      "key": [
+        "lane",
+        "pass",
+        "sequence"
+      ],
+      "fields": {
+        "lane": "string",
+        "pass": "string",
+        "sequence": "int",
+        "seen_at": "time",
+        "candidates": "list",
+        "camera": "string"
+      },
+      "note": "通过批次编号作用域为车道，摄像机可重报同一读数。candidates 是该观测的候选 VIN 数组，可为空。"
+    },
+    "paper_checks": {
+      "key": [
+        "check"
+      ],
+      "fields": {
+        "check": "string",
+        "lane": "string",
+        "pass": "string",
+        "vin": "string",
+        "manifest": "string",
+        "revision": "int",
+        "officer": "string"
+      },
+      "note": "纸单复核原始记录，officer 对应该班人工来源；该记录没有监管权限。"
+    },
+    "stations": {
+      "key": [
+        "device"
+      ],
+      "fields": {
+        "device": "string",
+        "lane": "string",
+        "port": "string",
+        "kind": "string"
+      },
+      "note": "摄像机和闸机按设备引用各归属一个车道。人工复核员的当班来源为 paper_checks 中的 officer。"
+    }
+  },
+  "references": [
+    [
+      "paper_checks",
+      [
+        "manifest",
+        "revision",
+        "vin"
+      ],
+      "manifests",
+      [
+        "manifest",
+        "revision",
+        "vin"
+      ]
+    ],
+    [
+      "paper_checks",
+      [
+        "lane",
+        "pass"
+      ],
+      "observations",
+      [
+        "lane",
+        "pass"
+      ]
+    ],
+    [
+      "observations",
+      [
+        "camera",
+        "lane"
+      ],
+      "stations",
+      [
+        "device",
+        "lane"
+      ]
+    ]
+  ]
+}

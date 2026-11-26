@@ -1,0 +1,4 @@
+{"lane": "W", "pass": "p89", "sequence": 1, "seen_at": "2026-11-27T01:14:52Z", "candidates": ["LTEST000000000013", "LTEST000000000027"], "camera": "west-2"}
+{"lane": "W", "pass": "p89", "sequence": 2, "seen_at": "2026-11-27T01:14:54Z", "candidates": ["LTEST000000000013"], "camera": "west-2"}
+{"lane": "E", "pass": "p10", "sequence": 6, "seen_at": "2026-11-27T01:15:04Z", "candidates": ["LTEST000000000013"], "camera": "east-1"}
+{"lane": "E", "pass": "p11", "sequence": 7, "seen_at": "2026-11-27T01:15:22Z", "candidates": ["LTEST000000000027"], "camera": "east-1"}

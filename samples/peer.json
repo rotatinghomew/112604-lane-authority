@@ -1,0 +1,97 @@
+[
+  [
+    "POST",
+    "/lanes/W/permits",
+    {
+      "permit": "g-89",
+      "pass": "p89",
+      "vin": "LTEST000000000013",
+      "expires_at": "2026-11-27T01:18:00Z"
+    },
+    [
+      [
+        0,
+        {}
+      ],
+      [
+        200,
+        {
+          "status": "armed",
+          "permit": "g-89"
+        }
+      ]
+    ]
+  ],
+  [
+    "GET",
+    "/lanes/W/permits/g-89",
+    null,
+    [
+      [
+        200,
+        {
+          "permit": "g-89",
+          "status": "armed"
+        }
+      ],
+      [
+        200,
+        {
+          "permit": "g-89",
+          "status": "crossed",
+          "crossed_at": "2026-11-27T01:16:01Z",
+          "lane": "W",
+          "pass": "p89",
+          "crossing_id": "w-cross-89"
+        }
+      ]
+    ]
+  ],
+  [
+    "POST",
+    "/lanes/W/permits/g-89/cancel",
+    {},
+    [
+      [
+        200,
+        {
+          "permit": "g-89",
+          "status": "crossed",
+          "crossed_at": "2026-11-27T01:16:01Z",
+          "lane": "W",
+          "pass": "p89",
+          "crossing_id": "w-cross-89"
+        }
+      ]
+    ]
+  ],
+  [
+    "GET",
+    "/events",
+    null,
+    [
+      [
+        200,
+        [
+          {
+            "event_id": "e4",
+            "permit": "g-89",
+            "lane": "W",
+            "pass": "p89",
+            "kind": "crossed",
+            "occurred_at": "2026-11-27T01:16:01Z",
+            "crossing_id": "w-cross-89"
+          },
+          {
+            "event_id": "e3",
+            "permit": "g-89",
+            "lane": "W",
+            "pass": "p89",
+            "kind": "armed",
+            "occurred_at": "2026-11-27T01:15:04Z"
+          }
+        ]
+      ]
+    ]
+  ]
+]
